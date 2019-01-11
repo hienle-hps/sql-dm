@@ -30,3 +30,21 @@ resources:
     name: svc2
     password: strong_password
     host: '%'
+
+- name: svc3_user
+  type: sqladmin.v1beta4.user
+  properties:
+    project: {{env["project"]}}
+    instance: $(ref.dbbox.name)
+    name: svc3
+    password: default_password
+    host: '%'
+
+- name: svc4_user
+  type: sqladmin.v1beta4.user
+  properties:
+    project: {{env["project"]}}
+    instance: $(ref.dbbox.name)
+    name: svc4
+    password: default_password
+    host: '%'
