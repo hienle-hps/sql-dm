@@ -7,3 +7,12 @@ resources:
     region: us-east1
     settings:
       tier: db-f1-micro
+
+- name: svc1_user
+  type: sqladmin.v1beta4.user
+  properties:
+    project: {{env["project"]}}
+    instance: $(ref.dbbox.name)
+    name: svc1
+    password: insecure_password
+    host: '%'
