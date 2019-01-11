@@ -7,15 +7,3 @@ resources:
     region: us-east1
     settings:
       tier: db-f1-micro
-
-- name: rotate_password-svc1_user 
-  action: gcp-types/sqladmin-v1beta4:sql.users.update
-  metadata:
-    runtimePolicy:
-    - UPDATE_ON_CHANGE
-  properties:
-    project: {{ env['project'] }}
-    instance: $(ref.dbbox.name)
-    name: svc1
-    password: strong_password
-    host: '%'
