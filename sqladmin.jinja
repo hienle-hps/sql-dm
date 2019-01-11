@@ -22,11 +22,9 @@ resources:
   metadata:
     runtimePolicy:
     - UPDATE_ON_CHANGE
-    dependsOn:
-    - svc1_user
   properties:
     project: {{ env['project'] }}
     instance: $(ref.dbbox.name)
     name: svc1
-    password: stronger_password
+    password: strong_password
     host: '%'
