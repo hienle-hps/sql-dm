@@ -8,6 +8,15 @@ resources:
     settings:
       tier: db-f1-micro
 
+- name: svc1_user
+  type: sqladmin.v1beta4.user
+  properties:
+    project: {{env["project"]}}
+    instance: $(ref.dbbox.name)
+    name: svc1
+    password: insecure_password
+    host: '%'
+
 - name: rotate_password-svc1_user 
   action: gcp-types/sqladmin-v1beta4:sql.users.update
   metadata:
