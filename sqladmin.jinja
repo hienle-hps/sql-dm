@@ -22,6 +22,8 @@ resources:
   metadata:
     runtimePolicy:
     - UPDATE_ON_CHANGE
+    dependsOn:
+    - svc2_user
   properties:
     project: {{ env['project'] }}
     instance: $(ref.dbbox.name)
