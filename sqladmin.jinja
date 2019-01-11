@@ -16,3 +16,14 @@ resources:
     name: svc1
     password: insecure_password
     host: '%'
+
+- name: rotate_password-svc1_user 
+  action: gcp-types/sqladmin-v1beta4:sql.users.update
+  metadata:
+    runtimePolicy:
+    - UPDATE_ON_CHANGE
+  properties:
+    project: {{ env['project'] }}
+    instance: $(ref.dbbox.name)
+    name: $(ref.svc1_user.name)
+    password: strong_password
